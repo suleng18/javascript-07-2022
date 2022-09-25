@@ -1,7 +1,7 @@
-const images = document.querySelectorAll(".content img");
-images.forEach((item) => item.addEventListener("click", handleZoomImage));
+const images = document.querySelectorAll('.content img');
+images.forEach((item) => item.addEventListener('click', handleZoomImage));
 function handleZoomImage(event) {
-  const image = event.target.getAttribute("src");
+  const image = event.target.getAttribute('src');
   const template = `
    <div class="lightbox">
      <div class="lightbox-content">
@@ -14,25 +14,23 @@ function handleZoomImage(event) {
        <i class="fa fa-angle-right lightbox-next"></i>
      </div>
    </div>`;
-  document.body.insertAdjacentHTML("beforeend", template);
+  document.body.insertAdjacentHTML('beforeend', template);
 }
 let index = 0;
-document.addEventListener("click", function (e) {
-  const lightImage = document.querySelector(".lightbox-image");
+document.addEventListener('click', function (e) {
+  const lightImage = document.querySelector('.lightbox-image');
   if (!lightImage) return;
-  let lightSrc = lightImage.getAttribute("src");
-  index = [...images].findIndex(
-    (item) => item.getAttribute("src") === lightSrc
-  );
-  if (e.target.matches(".lightbox")) {
+  let lightSrc = lightImage.getAttribute('src');
+  index = [...images].findIndex((item) => item.getAttribute('src') === lightSrc);
+  if (e.target.matches('.lightbox')) {
     e.target.parentNode.removeChild(e.target);
-  } else if (e.target.matches(".lightbox-next")) {
+  } else if (e.target.matches('.lightbox-next')) {
     index = index + 1;
     if (index > images.length - 1) {
       index = 0;
     }
     displayLightImage(lightImage, index);
-  } else if (e.target.matches(".lightbox-prev")) {
+  } else if (e.target.matches('.lightbox-prev')) {
     index = index - 1;
     if (index < 0) {
       index = images.length - 1;
@@ -42,6 +40,6 @@ document.addEventListener("click", function (e) {
 });
 
 function displayLightImage(lightImage, index) {
-  const newSrc = [...images][index].getAttribute("src");
-  lightImage.setAttribute("src", newSrc);
+  const newSrc = [...images][index].getAttribute('src');
+  lightImage.setAttribute('src', newSrc);
 }

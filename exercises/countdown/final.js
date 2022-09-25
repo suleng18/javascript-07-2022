@@ -1,8 +1,8 @@
-window.addEventListener("load", function () {
-  const daysText = document.querySelector(".days");
-  const hoursText = document.querySelector(".hours");
-  const minutesText = document.querySelector(".minutes");
-  const secondsText = document.querySelector(".seconds");
+window.addEventListener('load', function () {
+  const daysText = document.querySelector('.days');
+  const hoursText = document.querySelector('.hours');
+  const minutesText = document.querySelector('.minutes');
+  const secondsText = document.querySelector('.seconds');
   function countdown(date) {
     const endDate = new Date(date).getTime();
     let currentDate = new Date().getTime();
@@ -30,5 +30,5 @@ window.addEventListener("load", function () {
       }
     }
   }
-  countdown("Wed Jun 30 2021 22:44:42 GMT+0700 (Indochina Time)");
+  countdown('Wed Jun 30 2021 22:44:42 GMT+0700 (Indochina Time)');
 });
